@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/layout_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/value_40dp"
+        android:background="@color/grey"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/value_10dp"
+            android:layout_weight="0.7"
+            android:gravity="center|left"
+            android:maxLines="1"
+            android:text="SMS Forward Number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/value_20dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_wallet"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/linear_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/relative_mobile"
+                android:layout_width="@dimen/value_270dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/txt_input_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:hintTextAppearance="@style/TextInputLayout">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edit_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:gravity="center|left"
+                        android:hint="Mobile Number"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:nextFocusForward="@+id/edit_operator"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/value_14dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/img_contact"
+                    android:layout_width="@dimen/value_35dp"
+                    android:layout_height="@dimen/value_35dp"
+                    android:layout_alignRight="@+id/txt_input_mobile"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/value_5dp"
+                    android:src="@drawable/img_contact" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/value_20dp"
+                android:layout_marginTop="@dimen/value_20dp"
+                android:background="@drawable/button_blue"
+                android:gravity="center"
+                android:text="Add"
+                android:textColor="@color/white"
+                android:textSize="@dimen/value_18dp"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/value_1dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/txt_recent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/value_30dp"
+                android:background="@color/light_gray"
+                android:gravity="center|left"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/value_10dp"
+                android:text="Already Forward Number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/value_16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/value_1dp"
+                android:background="@color/gray" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/reclerviewadapter" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
